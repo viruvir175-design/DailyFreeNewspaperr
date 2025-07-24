@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Free Newspaper - Free PDF Downloads</title>
+    <meta name="description" content="Download free daily newspapers in English and Hindi. Get instant access to The Hindu, Times of India, Dainik Jagran and more. Mobile optimized with secure downloads.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #1e293b;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .feature {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+        
+        .language-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 640px) {
+            .language-tabs {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .language-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid #3b82f6;
+            border-radius: 2rem;
+            background: white;
+            color: #3b82f6;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .language-btn:hover,
+        .language-btn.active {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .newspapers-section {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+        
+        .newspapers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .newspaper-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .newspaper-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .newspaper-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .newspaper-desc {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .newspaper-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .language-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+        }
+        
+        .download-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            transform: translateY(-2px);
+        }
+        
+        .privacy-section {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .privacy-btn {
+            background: white;
+            border: 2px solid #6b7280;
+            color: #6b7280;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .privacy-content {
+            display: none;
+            text-align: left;
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .privacy-content.show {
+            display: block;
+        }
+        
+        .privacy-content h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .privacy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+        
+        .footer {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📰 Daily Free Newspaper</h1>
+            <p>Download today's newspapers for free - Enhanced with seamless downloads</p>
+            <div class="features">
+                <span class="feature">📱 Mobile Optimized</span>
+                <span class="feature">⚡ Instant Downloads</span>
+                <span class="feature">🛡️ Secure & Fast</span>
+            </div>
+        </header>
+
+        <!-- Language Selection -->
+        <div class="language-tabs">
+            <button class="language-btn active" onclick="showLanguage('english')" id="english-btn">
+                🌐 English
+            </button>
+            <button class="language-btn" onclick="showLanguage('hindi')" id="hindi-btn">
+                🇮🇳 हिंदी
+            </button>
+        </div>
+
+        <!-- English Newspapers -->
+        <div id="english-newspapers" class="newspapers-section">
+            <h2 class="section-title">📰 English Newspapers</h2>
+            <div class="newspapers-grid">
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">The Hindu</h3>
+                    <p class="newspaper-desc">National daily newspaper with comprehensive coverage of politics, business, sports, and international news.</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">English</span>
+                        <span style="color: #059669;">📄 PDF Available</span>
+                    </div>
+                    <button class="download-btn" onclick="downloadNewspaper('The Hindu')">
+                        📥 Download PDF
+                    </button>
+                </div>
+                
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">Times of India</h3>
+                    <p class="newspaper-desc">India's largest selling English daily with latest news, business updates, and entertainment coverage.</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">English</span>
+                        <span style="color: #3b82f6;">🔗 External Link</span>
+                    </div>
+                    <button class="download-btn" onclick="openNewspaper('https://epaper.timesgroup.com/')">
+                        🌐 Visit Site
+                    </button>
+                </div>
+                
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">Indian Express</h3>
+                    <p class="newspaper-desc">Leading English newspaper known for its investigative journalism and political coverage.</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">English</span>
+                        <span style="color: #3b82f6;">🔗 External Link</span>
+                    </div>
+                    <button class="download-btn" onclick="openNewspaper('https://epaper.indianexpress.com/')">
+                        🌐 Visit Site
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hindi Newspapers -->
+        <div id="hindi-newspapers" class="newspapers-section hidden">
+            <h2 class="section-title">📰 हिंदी समाचार पत्र</h2>
+            <div class="newspapers-grid">
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">दैनिक जागरण</h3>
+                    <p class="newspaper-desc">हिंदी का सबसे बड़ा दैनिक समाचार पत्र जो राष्ट्रीय और स्थानीय समाचारों का व्यापक कवरेज प्रदान करता है।</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">हिंदी</span>
+                        <span style="color: #3b82f6;">🔗 External Link</span>
+                    </div>
+                    <button class="download-btn" onclick="openNewspaper('https://epaper.jagran.com/')">
+                        🌐 Visit Site
+                    </button>
+                </div>
+                
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">अमर उजाला</h3>
+                    <p class="newspaper-desc">उत्तर भारत का प्रमुख हिंदी दैनिक समाचार पत्र जो समसामयिक घटनाओं की विस्तृत रिपोर्टिंग करता है।</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">हिंदी</span>
+                        <span style="color: #3b82f6;">🔗 External Link</span>
+                    </div>
+                    <button class="download-btn" onclick="openNewspaper('https://epaper.amarujala.com/')">
+                        🌐 Visit Site
+                    </button>
+                </div>
+                
+                <div class="newspaper-card">
+                    <h3 class="newspaper-name">नवभारत टाइम्स</h3>
+                    <p class="newspaper-desc">टाइम्स ग्रुप का हिंदी दैनिक समाचार पत्र जो शहरी पाठकों के लिए आधुनिक समाचार प्रस्तुत करता है।</p>
+                    <div class="newspaper-meta">
+                        <span class="language-tag">हिंदी</span>
+                        <span style="color: #3b82f6;">🔗 External Link</span>
+                    </div>
+                    <button class="download-btn" onclick="openNewspaper('https://navbharattimes.indiatimes.com/')">
+                        🌐 Visit Site
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 class="section-title">📱 Contact Us</h2>
+            <p>किसी भी सहायता या सुझाव के लिए हमसे संपर्क करें:</p>
+            <a href="https://t.me/Pnkz_only" target="_blank" class="contact-btn">
+                💬 Telegram पर संपर्क करें: @Pnkz_only
+            </a>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="privacy-section">
+            <button class="privacy-btn" onclick="togglePrivacy()">
+                🛡️ Privacy Policy
+            </button>
+            <div id="privacy-content" class="privacy-content">
+                <h3>Privacy Policy</h3>
+                <p><strong>Information Collection:</strong> हम केवल आवश्यक तकनीकी जानकारी एकत्र करते हैं जैसे कि download statistics और website usage data।</p>
+                <p><strong>Data Usage:</strong> आपकी व्यक्तिगत जानकारी का उपयोग केवल service improvement के लिए किया जाता है। हम आपका data third parties के साथ share नहीं करते।</p>
+                <p><strong>Cookies:</strong> हमारी website आपके experience को बेहतर बनाने के लिए cookies का उपयोग करती है।</p>
+                <p><strong>Content:</strong> सभी newspapers उनके respective publishers की property हैं। हम केवल free distribution के लिए links provide करते हैं।</p>
+                <p><strong>Contact:</strong> Privacy concerns के लिए हमसे Telegram पर संपर्क करें: @Pnkz_only</p>
+                <p><strong>Updates:</strong> यह policy समय-समय पर update हो सकती है। Changes के लिए नियमित रूप से check करें।</p>
+                <p style="font-size: 0.8rem; font-style: italic;">Last updated: December 2024</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="download-count">12,847</div>
+                    <div class="stat-label">Total Downloads</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Active Newspapers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2 min ago</div>
+                    <div class="stat-label">Last Updated</div>
+                </div>
+            </div>
+            <p>&copy; 2024 Daily Free Newspaper. Enhanced download experience.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
